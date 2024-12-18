@@ -17,10 +17,11 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(morgan("dev"));
+app.use(express.json());
 
 app.use("/api/users", userRouter);
 
-app.get("/", (req: Request, res:Response, next: NextFunction) => {
+app.get("/", (req: Request, res: Response, next: NextFunction) => {
   res.status(200).json({ message: "Server alive" });
 });
 
